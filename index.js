@@ -1,17 +1,9 @@
-// Problem 1: Write a function that capitalizes the first letter of each word in a string.
-function capitalize(str) {
-    const strArray = str.split(" ")
-    const newArray = strArray.map(string => {
-        const capString1 = string.slice(0, 1).toUpperCase()
-        const capString2 = string.slice(1, string.length)
-        const capWordString1 = capString1 + capString2
-        return capWordString1
-    })
-
-    return newArray.join(" ")
+// Problem 1: Reverse a string
+function reverseString(str){
+    const revString = str.split("").reverse().join("")
+    return revString
 }
-
-console.log(capitalize("hello world"))
+console.log(reverseString("Hello"))
 
 // Problem 2: Count Vowels in a String
 function CountVowels(str){
@@ -29,95 +21,113 @@ console.log(CountVowels("programming"))
 
 // Problem 3: Check for Palindrome
 
-// function isPalindrome(string){
-//     const 
-// }
-const str = "madam"
-let j = str.length-1
-for(let i=0;i<str.length/2-1;i++){
-    console.log(str[i])
-    if(j != str.length/2){
-        
-    }
+function isPalindrome(string){
+    const newStr = string.split("").reverse().join("")
+    return string === newStr
 }
 
-/**
- * Problem 3: Check for Palindrome
-Write a function that checks if a string is a palindrome (reads the same forward and backward).
+console.log(isPalindrome("madam"))
+console.log(isPalindrome("hello"))
 
-Example:
+// Problem 4: Find the Maximum Number
+function maximumNumber(array){
+    let maxNuum = 0
+    // 1 no way
+    // for(let num of array){
+    //     if(maxNuum < num){
+    //         maxNuum = num
+    //     }
+    // }
 
-Input: "madam"
-Output: true
-Input: "hello"
-Output: false
+    // 2no way
+    array.map(num=>{
+        if(maxNuum < num){
+            maxNuum = num
+        }
+    })
 
+    return maxNuum
+}
 
-Problem 4: Find the Maximum Number
-Write a function that takes an array of numbers and returns the largest number.
+console.log(maximumNumber([1,20,3,4,5]))
+console.log(maximumNumber([5, 1, 9, 3]))
 
-Example:
+//Problem 5: Remove Duplicates from an Array
+function removeDuplicate(array){
+    let i = 0;
+    const newArray = []
+    newArray.push(array[0])
+    for (let j = 1 ; j<array.length;j++){
+        if(array[i] != array[j]){
+            newArray.push(array[j])
+        }
+        i++
+    }
+    return newArray
+}
 
-Input: [5, 1, 9, 3]
-Output: 9
+console.log(removeDuplicate([1,4,4,3]))
+console.log(removeDuplicate([1, 2, 2, 3, 4, 4]))
 
+// Problem 6: Sum of All Numbers in an Array
+function sumOfArrayNumbers(array){
+    let sum = 0
+    array.map(num=> sum += num)
+    return sum
+}
 
-Problem 5: Remove Duplicates from an Array
-Write a function that removes all duplicate numbers from an array.
+console.log(sumOfArrayNumbers([1, 2, 3, 4]))
 
-Example:
+// Problem 7: Find Even Numbers in an Array
+function evenNumbers(array){
+    const eveNum = array.filter(num=> num%2 === 0)
+    return eveNum
+}
 
-Input: [1, 2, 2, 3, 4, 4]
-Output: [1, 2, 3, 4]
+console.log(evenNumbers([1, 2, 3, 4, 5, 6]))
 
+// Problem 8: Write a function that capitalizes the first letter of each word in a string.
+function capitalize(str) {
+    const strArray = str.split(" ")
+    const newArray = strArray.map(string => {
+        const capString1 = string.slice(0, 1).toUpperCase()
+        const capString2 = string.slice(1, string.length)
+        const capWordString1 = capString1 + capString2
+        return capWordString1
+    })
 
-Problem 6: Sum of All Numbers in an Array
-Write a function that returns the sum of all numbers in an array.
+    return newArray.join(" ")
+}
 
-Example:
+console.log(capitalize("hello world"))
 
-Input: [1, 2, 3, 4]
-Output: 10
+// Problem 9: Find the Factorial of a Number
+function factorialNumber(num){
+    let newNum = 1
+    while(num > 1){
+        newNum *= num
+        num -= 1
+    }
+    return newNum
+}
 
+console.log(factorialNumber(5))
 
-Problem 7: Find Even Numbers in an Array
-Write a function that returns all even numbers from a given array.
+// Problem 10: PingPong Challenge
+function pingPong(){
+    let newArr = []
+    for(let i=1;i<21;i++){
+        if(i % 3 === 0 && i % 5 === 0){
+            newArr.push("PingPong")
+        }else if(i % 3 === 0){
+            newArr.push("Ping")
+        }else if(i % 5 === 0){
+            newArr.push("Pong")
+        }else{
+            newArr.push(i)
+        }
+    }
+    return newArr.join(" , ")
+}
 
-Example:
-
-Input: [1, 2, 3, 4, 5, 6]
-Output: [2, 4, 6]
-
-
-Problem 8: Capitalize First Letter of Each Word
-Write a function that capitalizes the first letter of each word in a string.
-
-Example:
-
-Input: "hello world"
-Output: "Hello World"
-
-
-Problem 9: Find the Factorial of a Number
-Write a function that calculates the factorial of a number using a loop.
-
-Example:
-
-Input: 5
-Output: 120
-
-
-Problem 10: PingPong Challenge
-Write a function that prints numbers from 1 to 20.
-
-Example:
-
-For multiples of 3, print "Ping"
-For multiples of 5, print "Pong"
-For multiples of both 3 and 5, print "PingPong"
-If the number is not a multiple of 3 or 5, print the number itself
-Example Output:
-
-1, 2, Ping, 4, Pong, Ping, 7, 8, Ping, Pong, 11, Ping, 13, 14, PingPong, 16 …..
-
- */
+console.log(pingPong())
